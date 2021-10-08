@@ -28,10 +28,16 @@ class ProductDetailScreen extends StatelessWidget {
               padding: EdgeInsets.all(10),
               height: 300,
               width: double.infinity,
-              child: Image.network(
-                loadedProduct.imageUrl,
-                fit: BoxFit.cover,
-              ),
+              child: loadedProduct.imageUrl.isNotEmpty
+                  ? Image.network(
+                      loadedProduct.imageUrl,
+                      fit: BoxFit.cover,
+                    )
+                  : Container(
+                      color: Colors.purpleAccent,
+                      height: 150,
+                      width: 150,
+                    ),
             ),
             SizedBox(
               height: 10,
